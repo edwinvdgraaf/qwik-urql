@@ -39,6 +39,11 @@ class QwikExchange {
 
   /** Process response by updating watch stores or triggering watch refetches */
   processResponse(result: OperationResult) {
+    if (result.error) {
+      console.error(result.error);
+      return;
+    }
+
     const key = result.operation.key;
     const watchedQuery = this.cache.triggers[key];
 
