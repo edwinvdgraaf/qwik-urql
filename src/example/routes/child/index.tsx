@@ -59,7 +59,7 @@ export default component$(() => {
             onPending={() => <div>Loading...</div>}
             onRejected={() => <div>Error</div>}
             onResolved={(res) => {
-              return <>{res.data ? res.data.film.title : 'No results'}</>;
+              return <>{res.data ? `${res.data.film.title} ${res.data.film.subTitle ? res.data.film.subTitle : ''}` : 'No results'}</>;
             }}
           />
         </li>

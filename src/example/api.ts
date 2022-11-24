@@ -5,6 +5,7 @@ export const schema = buildSchema(`
   type Film {
     id: String!
     title: String!
+    subTitle: String
   }
 
   input AddFilmInput {
@@ -35,6 +36,7 @@ export const rootValue = {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return {
       title: data[parseInt(id) % data.length],
+      subTitle: id === "0" ? "The movie" : null,
       id,
     };
   },
