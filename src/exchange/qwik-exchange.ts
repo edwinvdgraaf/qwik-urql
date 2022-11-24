@@ -67,6 +67,8 @@ class QwikExchange {
    * objects are ever updated.
    */
   private setDependencies(key: number, data: any) {
+    if (!data) return;
+
     if (typeof data !== 'object') {
       return;
     } else if (Array.isArray(data)) {
@@ -101,6 +103,8 @@ class QwikExchange {
    * Loop through query results and trigger a refetch for any dependant queries
    */
   triggerDependencies(data: any, hits: Set<number>) {
+    if (!data) return;
+
     if (typeof data !== 'object') {
       return;
     } else if (Array.isArray(data)) {
